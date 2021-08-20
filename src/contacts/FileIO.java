@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 
 public class FileIO {
     protected static String directory = "data";
@@ -21,6 +22,10 @@ public class FileIO {
         }
 
         return contactsFile;
+    }
+
+    public static List<String> getContacts() throws IOException {
+        return Files.readAllLines(getContactsFile());
     }
 
     public static void main(String[] args) {
