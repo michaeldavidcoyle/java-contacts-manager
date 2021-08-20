@@ -28,7 +28,7 @@ public class FileIO {
         return Files.readAllLines(getFile());
     }
 
-    public static void writeFile(List<Contact> contacts) throws IOException {
+    public static void writeFile(List<String> contacts) throws IOException {
         Files.write(getFile(), contacts);
     }
 
