@@ -1,13 +1,14 @@
 package contacts;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Contact {
     private String firstName;
     private String lastName;
     private String phoneNumber;
 
-    protected static ArrayList<Contact> contacts;
+    protected static List<Contact> contacts;
 
     public Contact(String firstName, String lastName, String phoneNumber) {
         this.firstName = firstName;
@@ -39,7 +40,7 @@ public class Contact {
         this.phoneNumber = phoneNumber;
     }
 
-    public ArrayList<Contact> getContacts() {
+    public static List<Contact> getContacts() {
         return contacts;
     }
 }
