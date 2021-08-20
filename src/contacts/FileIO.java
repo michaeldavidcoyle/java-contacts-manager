@@ -12,7 +12,7 @@ public class FileIO {
     protected static Path dataDirectory = Paths.get(directory);
     protected static Path contactsFile = Paths.get(directory, filename);
 
-    public static Path getContactsFile() throws IOException {
+    public static Path getFile() throws IOException {
         if (Files.notExists(dataDirectory)) {
             Files.createDirectories(dataDirectory);
         }
@@ -24,13 +24,17 @@ public class FileIO {
         return contactsFile;
     }
 
-    public static List<String> getContacts() throws IOException {
-        return Files.readAllLines(getContactsFile());
+    public static List<String> readFile() throws IOException {
+        return Files.readAllLines(getFile());
+    }
+
+    public static void writeFile(List<Contact> contacts) throws IOException {
+        Files.write(getFile(), contacts);
     }
 
     public static void main(String[] args) {
         try {
-            getContactsFile();
+            List<String> contacts = readFile();
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
