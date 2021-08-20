@@ -40,6 +40,10 @@ public class Contact {
         this.phoneNumber = phoneNumber;
     }
 
+    public String format() {
+        return String.format("%s %s %s", this.getFirstName(), this.getLastName(), this.getPhoneNumber());
+    }
+
     public static List<Contact> getContacts() {
         return contacts;
     }
