@@ -19,11 +19,11 @@ public class Input {
     }
 
     public boolean yesNo() {
-        return this.getString().toLowerCase().contains("y");
+        return yesNo("Yes or no? [y/n] ");
     }
 
     public boolean yesNo(String prompt) {
-        return this.getString(prompt).toLowerCase().contains("y");
+        return this.getString(prompt).equalsIgnoreCase("y");
     }
 
     public int getInt() {
