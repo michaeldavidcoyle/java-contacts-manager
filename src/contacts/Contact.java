@@ -64,6 +64,15 @@ public class Contact {
         }
     }
 
+    public static void displayContacts(List<Contact> contactsList) {
+        System.out.println("Name     |     Phone Number");
+        System.out.println("---------------------------");
+
+        for (Contact contact: contactsList){
+            System.out.println(contact.toConsoleString());
+        }
+    }
+
     public static void addContacts() {
         Input input = new Input();
 

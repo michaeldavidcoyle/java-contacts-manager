@@ -40,7 +40,7 @@ public class Main {
             switch (selection) {
                 case 1:
                     System.out.println();
-//                      Contact.displayContacts(Contact.getContacts());
+                    Contact.displayContacts(Contact.getContacts());
                     break;
                 case 2:
                     Contact.addContacts();
