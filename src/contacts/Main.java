@@ -25,6 +25,12 @@ public class Main {
     public static void main(String[] args) {
         Input input = new Input();
 
+        try {
+            Contact.populateContactsList();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+
         int selection;
 
         do {

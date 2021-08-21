@@ -1,5 +1,6 @@
 package contacts;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,6 +51,17 @@ public class Contact {
 
     public static List<Contact> getContacts() {
         return contacts;
+    }
+
+    public static void populateContactsList() throws IOException {
+        List<String> contactLines = FileIO.readFile();
+
+        String[] contactInfo;
+
+        for (String line : contactLines) {
+            contactInfo = line.split(" ");
+            contacts.add(new Contact(contactInfo[0], contactInfo[1], contactInfo[2]));
+        }
     }
 
     public static void addContacts() {
