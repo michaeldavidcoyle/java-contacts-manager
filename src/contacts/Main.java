@@ -1,5 +1,9 @@
 package contacts;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
 
     private static String[] menu = {
@@ -16,7 +20,56 @@ public class Main {
         for (String item : menu) {
             System.out.println(item);
         }
+    }
 
-        System.out.print("Enter an option (1, 2, 3, 4 or 5): ");
+    public static void main(String[] args) {
+        Input input = new Input();
+
+        int selection;
+
+        do {
+            displayMenu();
+            selection = input.getInt("Enter an option (1, 2, 3, 4 or 5): ", 1, 5);
+
+            switch (selection) {
+                case 1:
+                    System.out.println();
+//                      Contact.displayContacts(Contact.getContacts());
+                    break;
+                case 2:
+                    Contact.addContacts();
+                    break;
+                case 3:
+//                    List<String> contactSearch = Contact.findContact();
+//
+//                    if (contactSearch.size() == 0){
+//                        System.out.println("Sorry, name not found.");
+//                    } else {
+                        System.out.println("Display search results.");
+                        // Contact.displayContacts(contactSearch);
+//                    }
+
+                    break;
+                case 4:
+                    System.out.println("Delete contacts");
+                    // Contact.deleteContact();
+                    break;
+                case 5:
+                    System.out.println("\nGoodbye.");
+                    break;
+            }
+        } while (selection != 5);
+
+        List<String> contacts = new ArrayList<>();
+
+        for (Contact contact : Contact.getContacts()) {
+            contacts.add(contact.toFileString());
+        }
+
+        try {
+            FileIO.writeFile(contacts);
+        } catch (IOException e) {
+            System.out.println("There was a problem writing to file.");
+        }
     }
 }
