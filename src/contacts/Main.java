@@ -39,21 +39,19 @@ public class Main {
 
             switch (selection) {
                 case 1:
-                    System.out.println();
                     Contact.displayContacts(Contact.getContacts());
                     break;
                 case 2:
                     Contact.addContacts();
                     break;
                 case 3:
-//                    List<String> contactSearch = Contact.findContact();
-//
-//                    if (contactSearch.size() == 0){
-//                        System.out.println("Sorry, name not found.");
-//                    } else {
-                        System.out.println("Display search results.");
-                        // Contact.displayContacts(contactSearch);
-//                    }
+                    List<Contact> contactSearch = Contact.findContact();
+
+                    if (contactSearch.size() == 0){
+                        System.out.println("Sorry, name not found.");
+                    } else {
+                         Contact.displayContacts(contactSearch);
+                    }
 
                     break;
                 case 4:

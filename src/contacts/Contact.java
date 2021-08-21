@@ -1,6 +1,7 @@
 package contacts;
 
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,7 +66,7 @@ public class Contact {
     }
 
     public static void displayContacts(List<Contact> contactsList) {
-        System.out.println("Name     |     Phone Number");
+        System.out.println("\nName     |     Phone Number");
         System.out.println("---------------------------");
 
         for (Contact contact: contactsList){
@@ -95,5 +96,27 @@ public class Contact {
             contact = new Contact(firstName, lastName, phoneNumber);
             contacts.add(contact);
         } while (wantsToContinue);
+    }
+
+    public static List<Contact> findContact() {
+        Input input = new Input();
+
+        List<Contact> contactsMatch = new ArrayList<>();
+
+        System.out.println("\n--------- Search Contacts ---------\n");
+
+        String name = input.getString("Enter name: ");
+
+        for (Contact contact : contacts) {
+            if (contact.getFirstName().equalsIgnoreCase(name)) {
+                contactsMatch.add(contact);
+            }
+
+            if (contact.getLastName().equalsIgnoreCase(name)) {
+                contactsMatch.add(contact);
+            }
+        }
+
+        return contactsMatch;
     }
 }
