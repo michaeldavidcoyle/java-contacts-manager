@@ -8,7 +8,7 @@ public class Contact {
     private String lastName;
     private String phoneNumber;
 
-    protected static List<Contact> contacts;
+    protected static List<Contact> contacts = new ArrayList<>();
 
     public Contact(String firstName, String lastName, String phoneNumber) {
         this.firstName = firstName;
@@ -40,8 +40,12 @@ public class Contact {
         this.phoneNumber = phoneNumber;
     }
 
-    public String format() {
+    public String toFileString() {
         return String.format("%s %s %s", this.getFirstName(), this.getLastName(), this.getPhoneNumber());
+    }
+
+    public String toConsoleString() {
+        return String.format("%s %s | %s", this.getFirstName(), this.getLastName(), this.getPhoneNumber());
     }
 
     public static List<Contact> getContacts() {
@@ -55,16 +59,20 @@ public class Contact {
 
         System.out.println("\n----- Add New Contacts -----");
 
+        String firstName;
+        String lastName;
+        String phoneNumber;
+        Contact contact;
+
         do {
-            String firstName = input.getString("Enter first name: ");
-            String lastName = input.getString("Enter last name: ");
-            String phoneNumber = input.getString("Enter phone number: ");
-
-            Contact contact = new Contact(firstName, lastName, phoneNumber);
-
-            contacts.add(contact);
+            firstName  = input.getString("Enter first name: ");
+            lastName = input.getString("Enter last name: ");
+            phoneNumber = input.getString("Enter phone number: ");
 
             wantsToContinue = input.yesNo("Add another contact? [y/n] ");
+
+            contact = new Contact(firstName, lastName, phoneNumber);
+            contacts.add(contact);
         } while (wantsToContinue);
     }
 }
