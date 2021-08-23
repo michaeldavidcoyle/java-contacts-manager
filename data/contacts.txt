@@ -1,3 +1,8 @@
 Michael Coyle 2104440004
 Bugs Bunny 2132222847
 Daffy Duck 2132223825
+Tweety Bird 2132222473
+Elmer Fudd 2132223833
+Sylvester Cat 2132224286
+Marvin Martian 0000000001
+Road Runner 2131234567
