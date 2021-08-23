@@ -55,8 +55,7 @@ public class Main {
 
                     break;
                 case 4:
-                    System.out.println("Delete contacts");
-                    // Contact.deleteContact();
+                    Contact.deleteContact();
                     break;
                 case 5:
                     System.out.println("\nGoodbye.");

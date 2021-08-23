@@ -119,4 +119,38 @@ public class Contact {
 
         return contactsMatch;
     }
+
+    public static void deleteContact() {
+        Input input = new Input();
+
+        System.out.println("\n--------- Delete Contact ---------\n");
+        String name = input.getString("Enter name: ");
+
+        String first;
+        String last;
+
+        boolean confirmDelete;
+
+        ArrayList<Contact> contactsToDelete = new ArrayList<>();
+
+        for (Contact contact: contacts) {
+            first = contact.getFirstName();
+            last = contact.getLastName();
+
+            if (first.equalsIgnoreCase(name) || last.equalsIgnoreCase(name)) {
+                System.out.println("Match found: ");
+                System.out.println(contact.toConsoleString());
+
+                confirmDelete = input.yesNo("Do you want to delete this contact? [y/n] ");
+
+                if (confirmDelete) {
+                    contactsToDelete.add(contact);
+                }
+            }
+        }
+
+        for (Contact contact : contactsToDelete) {
+            contacts.remove(contact);
+        }
+    }
 }
